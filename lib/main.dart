@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
         onTap: () {
           setState(() {
             widget._foo = [
-              widget._random.nextInt(256),
+              255,
               widget._random.nextInt(256),
               widget._random.nextInt(256),
               widget._random.nextInt(256)
