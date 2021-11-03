@@ -1,0 +1,41 @@
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ lecture-1 ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+      # This job will run on ubuntu virtual machine
+    runs-on: ubuntu-latest
+    steps:
+    
+    # Setup Java environment in order to build the Android app.
+    - uses: actions/checkout@v1
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    
+    # Setup the flutter environment.
+    - uses: subosito/flutter-action@v1
+      with:
+        channel: 'beta' # 'dev', 'alpha', default to: 'stable'
+    
+    # Get flutter dependencies.
+    - run: flutter pub get
+    
+    # Check for any formatting issues in the code.
+#      - run: flutter format --dry-run --set-exit-if-changed $(find . example -name '*.dart' -not -name '*.g.dart') .
+        
+    # Run widget tests for our flutter project.
+    - run: flutter test
+    
+    # Build apk.
+    - run: flutter build apk --debug
