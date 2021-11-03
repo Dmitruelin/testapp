@@ -34,7 +34,8 @@ class _HomeState extends State<Home> {
       body: GestureDetector(
         child: Container(
           alignment: Alignment.center,
-          color: Colors.transparent, // Without this parametr size of Container contains only child borders; heigth and width MediaQuerry doesn't work too
+          color: Colors.transparent,
+          // Without this parametr size of Container contains only child borders; heigth and width MediaQuerry doesn't work too
           child: Text('Hey there'),
         ),
         onTap: () {
