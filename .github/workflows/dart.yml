@@ -35,7 +35,7 @@ jobs:
 #      - run: flutter format --dry-run --set-exit-if-changed $(find . example -name '*.dart' -not -name '*.g.dart') .
         
     # Run widget tests for our flutter project.
-    - run: flutter test
+   # - run: flutter test
     
     # Build apk.
     - run: flutter build apk --debug
