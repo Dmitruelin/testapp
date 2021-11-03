@@ -32,7 +32,7 @@ jobs:
     - run: flutter pub get
     
     # Check for any formatting issues in the code.
-#      - run: flutter format --dry-run --set-exit-if-changed $(find . example -name '*.dart' -not -name '*.g.dart') .
+    - run: flutter format --dry-run --set-exit-if-changed $(find . example -name '*.dart' -not -name '*.g.dart') .
         
     # Run widget tests for our flutter project.
    # - run: flutter test
